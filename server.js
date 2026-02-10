@@ -12,8 +12,8 @@ const { getAIResponse } = require('./aiService');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-const OFFICIAL_EMAIL = process.env.OFFICIAL_EMAIL || 'your.email@chitkara.edu.in';
-const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
+const OFFICIAL_EMAIL = (process.env.OFFICIAL_EMAIL || 'your.email@chitkara.edu.in').trim();
+const GEMINI_API_KEY = process.env.GEMINI_API_KEY ? process.env.GEMINI_API_KEY.trim() : undefined;
 
 app.use(helmet());
 app.use(express.json({ limit: '10mb' }));
